@@ -1,0 +1,14 @@
+# dsh-blob-download 的 bundle patch —— 把这个下载工具挂进 DSH 配置树
+#
+#   insert: 往配置树里加一行 entry
+#   id:     这一行的唯一标识
+#   name:   'dsh-blob-download' 解析到本包入口 lib/index.js
+
+- insert:
+    - id: blob-download
+      name: 'dsh-blob-download'
+      config:
+        # 默认目标目录（相对或绝对）。留空则用浏览器默认下载目录。
+        downloadDir: ''
+        # 单次下载等待上限（毫秒）
+        timeoutMs: 120000

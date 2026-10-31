@@ -1,0 +1,23 @@
+{
+  "manifestVersion": "0.15",
+  "id": "dsh-blob-download.local",
+  "name": "dsh-blob-download",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "在 DSH 浏览器里用 blob: 方案下载文件，绕过迅雷等下载扩展的劫持",
+  "facets": {
+    "host": { "entry": "lib/index.js", "apiVersion": "v1alpha1" }
+  },
+  "requires": {
+    "contracts": [{ "apiVersion": "tools.dsh/v1alpha1", "kind": "Tool" }]
+  },
+  "permissions": [],
+  "contributes": {
+    "x-display": [
+      {
+        "title": "dsh-blob-download",
+        "description": "走 blob: 协议的下载工具，不受下载劫持类扩展影响"
+      }
+    ]
+  }
+}

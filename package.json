@@ -1,0 +1,57 @@
+{
+  "name": "dsh-blob-download",
+  "version": "0.1.0",
+  "description": "在 DSH 浏览器里用 blob: 方案下载文件，绕过迅雷等下载扩展的劫持",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "dsh-plugin.json",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "check": "node --check lib/index.js",
+    "prepublishOnly": "npm run check"
+  },
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "engines": {
+    "dsh": ">=0.2.1-rc.5 <0.3.0",
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "author": "adcgesdad",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adcgesdad/dsh-blob-download.git"
+  },
+  "homepage": "https://github.com/adcgesdad/dsh-blob-download#readme",
+  "bugs": {
+    "url": "https://github.com/adcgesdad/dsh-blob-download/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "download",
+    "blob",
+    "thunder",
+    "迅雷"
+  ]
+}
