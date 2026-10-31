@@ -41,28 +41,15 @@ browser: download is only available on the self-hosted browser
 
 **方式一：插件页安装（推荐）**
 
-Web 侧边栏 → **插件** → 安装，填包名 `dsh-blob-download`（或本仓库的 git
-地址）。装完重启 DSH。
+Web 侧边栏 → **插件** → 安装，填本仓库的 git 地址：
 
-**方式二：手动**
-
-```bash
-cd ~/.dsh/profiles/desktop      # 或 profiles/web
-pnpm add dsh-blob-download
+```
+git+https://github.com/adcgesdad/dsh-blob-download.git
 ```
 
-然后在同一个 `package.json` 里把包名追加进 bundle 列表：
+需要固定版本就在后面加 `#<commit>`。装完重启 DSH。
 
-```json
-{
-  "dependencies": { "dsh-blob-download": "^0.1.0" },
-  "dsh": { "profile": { "bundles": ["dsh-builtin-browser", "dsh-blob-download"] } }
-}
-```
-
-重启 DSH 生效。
-
-**方式三：本地源码**
+**方式二：本地源码**
 
 ```bash
 git clone https://github.com/adcgesdad/dsh-blob-download.git ~/.dsh/plugin-src/dsh-blob-download
@@ -70,7 +57,20 @@ cd ~/.dsh/profiles/desktop
 pnpm add link:~/.dsh/plugin-src/dsh-blob-download
 ```
 
-同样把 `dsh-blob-download` 追加进 `dsh.profile.bundles`，重启。
+然后把包名追加进同一个 `package.json` 的 bundle 列表：
+
+```json
+{
+  "dependencies": { "dsh-blob-download": "link:..." },
+  "dsh": { "profile": { "bundles": ["dsh-builtin-browser", "dsh-blob-download"] } }
+}
+```
+
+重启 DSH 生效。
+
+**方式三：npm（暂未发布）**
+
+`npm i dsh-blob-download` 这条要等包发到 npm 之后才能用，目前请走上面两种。
 
 ## 工具：`blob_download`
 
